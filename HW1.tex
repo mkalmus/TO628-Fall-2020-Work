@@ -1,0 +1,764 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Homework Assignment 1},
+  pdfauthor={Michael Kalmus},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\title{Homework Assignment 1}
+\author{Michael Kalmus}
+\date{Assigned: Oct 24, 2020, Due Sun Nov 01, 2020 11:59PM}
+
+\begin{document}
+\maketitle
+
+\hypertarget{hw-1-instructions}{%
+\subsection{HW-1 Instructions}\label{hw-1-instructions}}
+
+\begin{quote}
+Our class emphasizes clear communication of data analysis results to
+non-technical audiences. I expect your HTML output documents to be
+readable and well formatted. I expect you to put ample comments in your
+R code to make the code understandable. Along with accuracy of results,
+I am looking for quality of presentation as well. This homework is due
+by \textbf{11:59PM on Nov 01st}. To complete this assignment, follow
+these steps:
+\end{quote}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Create a new RStudio Project for this HW. Sync the project directory
+  with a GitHub Repository (see instructions on Canvas on how to do
+  that).
+\item
+  Download the \texttt{HW1.Rmd} file from Canvas. Save the file in the
+  RStudio Project Directory.
+\item
+  Open \texttt{HW1.Rmd} in RStudio. Replace the ``Your Name Here'' text
+  in the \texttt{author:} field with your name.
+\item
+  Supply your solutions to the homework by editing \texttt{HW1.Rmd}.
+\item
+  Run your code in the Console and Knit HTML frequently to check for
+  errors.
+\item
+  You may find it easier to solve a problem by interacting only with the
+  Console at first.
+\item
+  When you have completed the homework please check that your knits
+  correctly when you click \texttt{Knit\ HTML}.
+\item
+  ``Push'' all your local changes to the GitHub Repo for the project.
+\item
+  Submit your RMD file, the HTML output and a link to your GitHub Repo
+  on Canvas.
+\end{enumerate}
+
+\hypertarget{data-frame-basics}{%
+\subsection{Data frame basics}\label{data-frame-basics}}
+
+We will continue working with the nycflights dataset we looked at in
+class. \textbf{Please be sure to keep the data file in the same
+directory as the RMD file - your project directory.}
+
+First - make sure that you are reading the data correctly and doing all
+the data cleaning steps that we did in class. Feel free to go beyond our
+class work in cleaning the data if you feel the need.
+
+I now would like you to answer the following - all in their own separate
+R code blocks.
+
+\hypertarget{data-exploration}{%
+\subsubsection{Data Exploration}\label{data-exploration}}
+
+Let's first do some simple exploration of this data.
+
+\begin{itemize}
+\tightlist
+\item
+  How many airlines are there? (Hint: \texttt{levels} and
+  \texttt{length} can be useful here)
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(ggplot2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Load data}
+\NormalTok{flights <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"nycflights.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{flights}\OperatorTok{$}\NormalTok{X <-}\StringTok{ }\OtherTok{NULL}
+
+\CommentTok{# Factorize columns that need to be a factor}
+\NormalTok{flights}\OperatorTok{$}\NormalTok{origin <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(flights}\OperatorTok{$}\NormalTok{origin)}
+\NormalTok{flights}\OperatorTok{$}\NormalTok{tailnum <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(flights}\OperatorTok{$}\NormalTok{tailnum)}
+\NormalTok{flights}\OperatorTok{$}\NormalTok{month <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(flights}\OperatorTok{$}\NormalTok{month)}
+\NormalTok{flights}\OperatorTok{$}\NormalTok{dest <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(flights}\OperatorTok{$}\NormalTok{dest)}
+\NormalTok{flights}\OperatorTok{$}\NormalTok{carrier <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(flights}\OperatorTok{$}\NormalTok{carrier)}
+\NormalTok{flights}\OperatorTok{$}\NormalTok{flight <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(flights}\OperatorTok{$}\NormalTok{flight)}
+
+\CommentTok{# Re-check data}
+\KeywordTok{str}\NormalTok{(flights)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 'data.frame':    336776 obs. of  19 variables:
+##  $ year          : int  2013 2013 2013 2013 2013 2013 2013 2013 2013 2013 ...
+##  $ month         : Factor w/ 12 levels "1","2","3","4",..: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ day           : int  1 1 1 1 1 1 1 1 1 1 ...
+##  $ dep_time      : int  517 533 542 544 554 554 555 557 557 558 ...
+##  $ sched_dep_time: int  515 529 540 545 600 558 600 600 600 600 ...
+##  $ dep_delay     : int  2 4 2 -1 -6 -4 -5 -3 -3 -2 ...
+##  $ arr_time      : int  830 850 923 1004 812 740 913 709 838 753 ...
+##  $ sched_arr_time: int  819 830 850 1022 837 728 854 723 846 745 ...
+##  $ arr_delay     : int  11 20 33 -18 -25 12 19 -14 -8 8 ...
+##  $ carrier       : Factor w/ 16 levels "9E","AA","AS",..: 12 12 2 4 5 12 4 6 4 2 ...
+##  $ flight        : Factor w/ 3844 levels "1","2","3","4",..: 1382 1545 1042 677 425 1527 469 3700 69 266 ...
+##  $ tailnum       : Factor w/ 4043 levels "D942DN","N0EGMQ",..: 180 524 2401 3204 2661 1142 1829 3300 2207 1178 ...
+##  $ origin        : Factor w/ 3 levels "EWR","JFK","LGA": 1 3 2 2 3 1 1 3 2 3 ...
+##  $ dest          : Factor w/ 105 levels "ABQ","ACK","ALB",..: 44 44 59 13 5 70 36 43 55 70 ...
+##  $ air_time      : int  227 227 160 183 116 150 158 53 140 138 ...
+##  $ distance      : int  1400 1416 1089 1576 762 719 1065 229 944 733 ...
+##  $ hour          : int  5 5 5 5 6 5 6 6 6 6 ...
+##  $ minute        : int  15 29 40 45 0 58 0 0 0 0 ...
+##  $ time_hour     : chr  "2013-01-01 05:00:00" "2013-01-01 05:00:00" "2013-01-01 05:00:00" "2013-01-01 05:00:00" ...
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{length}\NormalTok{(}\KeywordTok{levels}\NormalTok{(flights}\OperatorTok{$}\NormalTok{carrier))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 16
+\end{verbatim}
+
+There are 16 airlines
+
+\begin{itemize}
+\tightlist
+\item
+  How many flights there were by the airline with code \texttt{OO}?
+  (Hint: \texttt{nrow} can be useful here along with logical indexing)
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{flights }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(carrier }\OperatorTok{==}\StringTok{ "OO"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{nrow}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 32
+\end{verbatim}
+
+There are 32 flights with airline code `OO'
+
+\begin{itemize}
+\tightlist
+\item
+  How long is the shortest flight out of any NYC airport? (Hint:
+  \texttt{min} can be useful, remember to handle \texttt{NA} values)
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{min}\NormalTok{(flights}\OperatorTok{$}\NormalTok{airgain, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in min(flights$airgain, na.rm = TRUE): no non-missing arguments to min;
+## returning Inf
+\end{verbatim}
+
+\begin{verbatim}
+## [1] Inf
+\end{verbatim}
+
+The shortest flight out of any NYC airport is 20 minutes.
+
+\begin{itemize}
+\tightlist
+\item
+  How many flights where there by United Airlines (code: UA) on Jan 12th
+  2013?
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{flights }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(carrier }\OperatorTok{==}\StringTok{ "UA"} \OperatorTok{&}\StringTok{ }\NormalTok{year }\OperatorTok{==}\StringTok{ "2013"} \OperatorTok{&}\StringTok{ }\NormalTok{day }\OperatorTok{==}\StringTok{ "12"} \OperatorTok{&}\StringTok{ }\NormalTok{month }\OperatorTok{==}\StringTok{ "1"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{nrow}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 112
+\end{verbatim}
+
+There were 112 flights by United Airlines on Jan 12th, 2013.
+
+\hypertarget{arrival-delay}{%
+\subsubsection{Arrival Delay}\label{arrival-delay}}
+
+Lets focus on Arrival Delay.
+
+\begin{itemize}
+\tightlist
+\item
+  What was the average arrival delay for all airports and all airlines
+  combined in Jan 2013?
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{flights }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(month }\OperatorTok{==}\StringTok{ "1"} \OperatorTok{&}\StringTok{ }\NormalTok{year }\OperatorTok{==}\StringTok{ "2013"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{select}\NormalTok{(arr_delay, dep_delay) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}
+    \DataTypeTok{arr =} \KeywordTok{mean}\NormalTok{(arr_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{),}
+    \DataTypeTok{dep =} \KeywordTok{mean}\NormalTok{(dep_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##        arr      dep
+## 1 6.129972 10.03667
+\end{verbatim}
+
+The average arrival delay for all airports and all airlines combined in
+January 2013 is 6.13 minutes.
+
+\begin{itemize}
+\tightlist
+\item
+  Whats was the median arrival delay for all airports and all airlines
+  combined in Jan 2013?
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{flights }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(month }\OperatorTok{==}\StringTok{ "1"} \OperatorTok{&}\StringTok{ }\NormalTok{year }\OperatorTok{==}\StringTok{ "2013"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{select}\NormalTok{(arr_delay, dep_delay) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}
+    \DataTypeTok{arr =} \KeywordTok{median}\NormalTok{(arr_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   arr
+## 1  -3
+\end{verbatim}
+
+The median arrival delay for all airports and all airlines combined in
+Jan 2013 was -3.
+
+Based on your answers to the two questions above, what can you say about
+the distribution of arrival delays? Provide your answer in a text
+paragraph form.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{flights }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(month }\OperatorTok{==}\StringTok{ "1"} \OperatorTok{&}\StringTok{ }\NormalTok{year }\OperatorTok{==}\StringTok{ "2013"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{select}\NormalTok{(arr_delay, dep_delay) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_histogram}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ arr_delay), }\DataTypeTok{color =} \StringTok{"red"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{xlim}\NormalTok{(}\OperatorTok{-}\DecValTok{50}\NormalTok{, }\DecValTok{250}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 734 rows containing non-finite values (stat_bin).
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 2 rows containing missing values (geom_bar).
+\end{verbatim}
+
+\includegraphics{HW1_files/figure-latex/unnamed-chunk-10-1.pdf}
+
+Since the median is below the mean, the data for arrival delays is
+skewed to the left.
+
+\hypertarget{airline-performance}{%
+\subsubsection{Airline Performance}\label{airline-performance}}
+
+Lets see if all airlines are equally terrible as far as flight arrival
+delays are concerned. For this question you will have to make sure that
+airline column is coded as a factor.
+
+\begin{itemize}
+\tightlist
+\item
+  Calculate average arrival delays by airline (Hint: look up the command
+  \texttt{tapply})
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df2 <-}\StringTok{ }\NormalTok{flights }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(carrier) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{mean_delay =} \KeywordTok{mean}\NormalTok{(arr_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{arrange}\NormalTok{(}\KeywordTok{desc}\NormalTok{(mean_delay))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 16 x 2
+##    carrier mean_delay
+##    <fct>        <dbl>
+##  1 F9          21.9  
+##  2 FL          20.1  
+##  3 EV          15.8  
+##  4 YV          15.6  
+##  5 OO          11.9  
+##  6 MQ          10.8  
+##  7 WN           9.65 
+##  8 B6           9.46 
+##  9 9E           7.38 
+## 10 UA           3.56 
+## 11 US           2.13 
+## 12 VX           1.76 
+## 13 DL           1.64 
+## 14 AA           0.364
+## 15 HA          -6.92 
+## 16 AS          -9.93
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Draw a Bar Plot of Average Arrival Delays for all the Airlines (Hint:
+  command for making a Bar Plot is simply \texttt{barplot})
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{barplot}\NormalTok{(df2}\OperatorTok{$}\NormalTok{mean_delay)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{HW1_files/figure-latex/unnamed-chunk-12-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df2 }\OperatorTok{%>%}\StringTok{ }\KeywordTok{ggplot}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_col}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ carrier, }\DataTypeTok{y =}\NormalTok{ mean_delay))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{HW1_files/figure-latex/unnamed-chunk-12-2.pdf}
+
+\begin{itemize}
+\tightlist
+\item
+  Which airline has the highest average arrival delay? Which airline has
+  the smallest average arrival delay? Are there airlines that actually
+  have negative average delay? Provide answer to this question in a text
+  paragraph form using \textbf{inline R code}.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df2 }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(mean_delay }\OperatorTok{==}\StringTok{ }\KeywordTok{max}\NormalTok{(mean_delay))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 2
+##   carrier mean_delay
+##   <fct>        <dbl>
+## 1 F9            21.9
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df2 }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(mean_delay }\OperatorTok{==}\StringTok{ }\KeywordTok{min}\NormalTok{(mean_delay))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 2
+##   carrier mean_delay
+##   <fct>        <dbl>
+## 1 AS           -9.93
+\end{verbatim}
+
+\hypertarget{air-gain}{%
+\subsubsection{Air Gain}\label{air-gain}}
+
+Create a new column named airgain such that airgain = (departure delay -
+arrival delay) : this is the amount of delay a flight made up while in
+air.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{flights <-}\StringTok{ }\NormalTok{flights }\OperatorTok{%>%}\StringTok{ }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{airgain =}\NormalTok{ dep_delay }\OperatorTok{-}\StringTok{ }\NormalTok{arr_delay)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Explore airgain data - calculate suitable descriptive statistics and
+  appropriate graphics to better understand this data. This part is open
+  ended - you do what you feel works best for you.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{min}\NormalTok{(flights}\OperatorTok{$}\NormalTok{airgain, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -196
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{max}\NormalTok{(flights}\OperatorTok{$}\NormalTok{airgain, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 109
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{mean}\NormalTok{(flights}\OperatorTok{$}\NormalTok{airgain, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 5.659779
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{median}\NormalTok{(flights}\OperatorTok{$}\NormalTok{airgain, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 7
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{summary}\NormalTok{(flights}\OperatorTok{$}\NormalTok{airgain)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+## -196.00   -3.00    7.00    5.66   17.00  109.00    9430
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{flights }\OperatorTok{%>%}\StringTok{ }\KeywordTok{ggplot}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_boxplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ carrier, }\DataTypeTok{y =}\NormalTok{ airgain))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Removed 9430 rows containing non-finite values (stat_boxplot).
+\end{verbatim}
+
+\includegraphics{HW1_files/figure-latex/unnamed-chunk-15-1.pdf}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Answer the questions:
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  do airlines actually gain any time when in air on average?
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{mean}\NormalTok{(flights}\OperatorTok{$}\NormalTok{airgain, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 5.659779
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Calculate average airgain for different airlines - which airlines do a
+  better job, which do a worse job?
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{flights }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(carrier) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{mean_gain =} \KeywordTok{mean}\NormalTok{(airgain, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{arrange}\NormalTok{(}\KeywordTok{desc}\NormalTok{(mean_gain)) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{filter}\NormalTok{(mean_gain }\OperatorTok{==}\StringTok{ }\KeywordTok{max}\NormalTok{(mean_gain) }\OperatorTok{|}\StringTok{ }\NormalTok{mean_gain }\OperatorTok{==}\StringTok{ }\KeywordTok{min}\NormalTok{(mean_gain))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
+
+\begin{verbatim}
+## # A tibble: 2 x 2
+##   carrier mean_gain
+##   <fct>       <dbl>
+## 1 AS          15.8 
+## 2 F9          -1.72
+\end{verbatim}
+
+From the dataframe, we can see that carrier AS does the best job,
+gaining 15.76 mins of airtime on average, while F9 does the worst,
+losing 1.72 mins of airtime on average.
+
+\hypertarget{merging-data-frames}{%
+\subsubsection{Merging Data Frames}\label{merging-data-frames}}
+
+\begin{quote}
+This section and the next is new compared to the class exercise. As you
+had an opportunity to work together in your breakout rooms for previous
+questions, this and the next section will carry a higher weight in
+grading for this HW.
+\end{quote}
+
+You can get detailed information about the physical planes in our
+dataset in this file: \texttt{planes.csv}. Download and save this file
+in your project directory.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Read the \texttt{planes.csv} file using \texttt{read.csv} command. Do
+  any data cleaning necessary.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{planes <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"planes.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{planes}\OperatorTok{$}\NormalTok{X <-}\StringTok{ }\OtherTok{NULL}
+\NormalTok{planes}\OperatorTok{$}\NormalTok{tailnum <-}\StringTok{ }\KeywordTok{factor}\NormalTok{(planes}\OperatorTok{$}\NormalTok{tailnum)}
+\NormalTok{planes}\OperatorTok{$}\NormalTok{type <-}\StringTok{ }\KeywordTok{factor}\NormalTok{(planes}\OperatorTok{$}\NormalTok{type)}
+\NormalTok{planes}\OperatorTok{$}\NormalTok{manufacturer <-}\StringTok{ }\KeywordTok{factor}\NormalTok{(planes}\OperatorTok{$}\NormalTok{manufacturer)}
+\NormalTok{planes}\OperatorTok{$}\NormalTok{model <-}\StringTok{ }\KeywordTok{factor}\NormalTok{(planes}\OperatorTok{$}\NormalTok{model)}
+\NormalTok{planes}\OperatorTok{$}\NormalTok{engine <-}\StringTok{ }\KeywordTok{factor}\NormalTok{(planes}\OperatorTok{$}\NormalTok{engine)}
+\NormalTok{planes}\OperatorTok{$}\NormalTok{year <-}\StringTok{ }\KeywordTok{factor}\NormalTok{(planes}\OperatorTok{$}\NormalTok{year)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Merge the flights data and the planes data using the \texttt{merge}
+  command. You should do the merge on the common column named
+  \texttt{tailnum}. \emph{getting this right may need some trial and
+  error and getting some help}.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{merge_df <-}\StringTok{ }\KeywordTok{merge}\NormalTok{(flights, planes, }\DataTypeTok{sort =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{by =} \StringTok{"tailnum"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Now that you have a merged dataset, think of what interesting
+  questions that you can ask that can be answered using the merged
+  dataset. You are asked to pose five interesting questions and answer
+  them. (For example: who are the top 10 manufacturers of planes that
+  fly out of NYC airports?) \textbf{Be creative. Be bold. Ask questions
+  that you would want to know answers to even if you were not doing this
+  for a HW. }
+\end{enumerate}
+
+Q1: What engine types
+
+\hypertarget{making-your-html-look-nice}{%
+\subsubsection{Making Your HTML Look
+Nice}\label{making-your-html-look-nice}}
+
+We want our report to be good looking, professional documents. To that
+end, I am asking you to do the following:
+
+\begin{itemize}
+\item
+  Have a floating table of contents
+\item
+  Include code folding in your output. You can find more about code
+  folding here:
+  \url{https://bookdown.org/yihui/rmarkdown/html-document.html\#code-folding}
+\end{itemize}
+
+That's it. Once you are done, make sure everything works and knits well
+and then you can push your changes to the GitHub repo and uplaod the RMD
+flile and the html output to Canvas.
+
+\textbf{Have Fun!}
+
+Sanjeev
+
+\end{document}
