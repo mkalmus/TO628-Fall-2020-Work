@@ -2,6 +2,7 @@
 title: "Homework Assignment 1"
 author: "Michael Kalmus"
 date: 'Assigned: Oct 24, 2020, Due Sun Nov 01, 2020 11:59PM'
+subtitle: 'https://github.com/mkalmus/TO628-Fall-2020-Work'
 output:
   html_document: 
     code_folding: hide
